@@ -1,0 +1,21 @@
+.preview {
+    position: relative;
+    height: 415px;
+    border-radius: 14px;
+    box-shadow: inset rgba(0, 0, 0, 0.075) 0 0 0 1px;
+}
+
+.fullscreen {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 16px;
+    padding: 8px;
+    opacity: 0.6;
+    transition: opacity 0.1s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 1;
+    }
+}

@@ -1,0 +1,26 @@
+.colorInputWrapper {
+    position: relative;
+}
+
+.colorInput {
+    padding: 0 50px 0 14px;
+    height: 46px;
+    border-radius: 10px;
+}
+
+.currentColor {
+    /* background-color: #681193; */
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    /* transform: translate3d(0, 50%, 0); */
+    height: 30px;
+    width: 30px;
+    border-radius: 6px;
+    box-shadow: inset rgba(0, 0, 0, 0.075) 0 0 0 1px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

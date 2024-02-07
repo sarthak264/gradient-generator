@@ -1,0 +1,34 @@
+.controlPanel {
+    height: 415px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: inset rgba(0, 0, 0, 0.075) 0 0 0 1px;
+}
+
+.slider {
+    position: relative;
+    height: 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #681193 0%, #4542C9 51%, #2472FC 100%);
+
+    margin: 24px 0 50px 0;
+}
+
+.sliderCursors {
+    position: absolute;
+    top: 50%;
+    background-color: #681193;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    transform: translate3d(0, -50%, 0);
+    box-shadow: rgba(0, 0, 0, 0.15) 0 0 0 1px, rgba(0, 0, 0, 0.05) 0 10px 10px -5px, inset #fff 0 0 0 6px;
+}
+
+.btnsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: stretch;
+    align-items: center;
+    gap: 24px;
+}

@@ -1,0 +1,10 @@
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 42px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}

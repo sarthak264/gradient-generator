@@ -2,10 +2,50 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
+
+  overflow: hidden;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+  padding-bottom: 14px;
+  user-select: none;
+}
+
+input[type=text] {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #000;
+
+  border: none;
+  box-shadow: inset #d8d8da 0 0 0 1px, inset white 0 0 0 100px;
+
+  transition: box-shadow 0.1s;
+
+  &:hover {
+    box-shadow: inset #b1b0b5 0 0 0 1px, inset white 0 0 0 100px;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: inset #0066ff 0 0 0 1px, inset white 0 0 0 100px;
+  }
+}
+
+.react-colorful {
+  position: absolute !important;
+  bottom: -205px;
+  right: -40%;
+  z-index: 999;
 }
