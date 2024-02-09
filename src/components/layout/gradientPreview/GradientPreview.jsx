@@ -1,35 +1,24 @@
 import styles from './gradientPreview.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+import useStore from '../../../store';
+import { useEffect } from 'react';
+import generateGradientString from '../../../utils/generateGradient';
 
 const GradientPreview = ({ setShowFullPreview }) => {
-  const gradientData = {
-    type: 'linear',
-    rotation: 0,
-    stops: [
-      { color: '#681193', position: 0 },
-      { color: '#4542C9', position: 0.51 },
-      { color: '#2472FC', position: 1 },
-    ],
-  };
+  const { type, rotation, stopsArr } = useStore();
 
-  const generateGradientString = (gradientData) => {
-    const gradientType =
-      gradientData.type === 'radial' ? 'radial-gradient' : 'linear-gradient';
-    const gradientDirection = gradientData.rotation;
-    const stopsString = gradientData.stops
-      .map((stop) => `${stop.color} ${stop.position * 100}%`)
-      .join(', ');
-
-    return `${gradientType}(${gradientDirection}, ${stopsString})`;
-  };
-
-  console.log(generateGradientString(gradientData));
+  useEffect(() => {
+    console.log(type);
+    console.log(generateGradientString(type, rotation, stopsArr));
+  }, [type, rotation, stopsArr]);
 
   return (
     <div
       className={styles.preview}
-      style={{ background: `${generateGradientString(gradientData)}` }}
+      style={{
+        background: `${generateGradientString(type, rotation, stopsArr)}`,
+      }}
     >
       <FontAwesomeIcon
         icon={faUpRightAndDownLeftFromCenter}

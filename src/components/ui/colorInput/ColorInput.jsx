@@ -1,10 +1,19 @@
 import { useEffect, useState } from 'react';
 import { HexColorPicker } from 'react-colorful';
 import styles from './colorInput.module.css';
+import useStore from '../../../store';
 
 const ColorInput = () => {
-  const [color, setColor] = useState('#aabbcc');
+  const { stopsArr, activeStop, setActiveColor, randomCalls } = useStore();
+  const [color, setColor] = useState(stopsArr[activeStop].color);
   const [selectColor, setSelectColor] = useState(false);
+
+  useEffect(() => {
+    setColor(stopsArr[activeStop].color);
+  }, [activeStop]);
+
+  useEffect(() => setActiveColor(color), [color]);
+  useEffect(() => setColor(stopsArr[activeStop].color), [randomCalls]);
 
   return (
     <div className={styles.colorInputWrapper}>

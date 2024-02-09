@@ -2,23 +2,51 @@ import styles from './numSelectBtn.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
+import useStore from '../../../store';
+import capitalizeWord from '../../../utils/capitalizeWord';
 
-const NumSelectBtn = ({ title, symbol, range, list }) => {
-  const [value, setValue] = useState(0 + symbol);
+const NumSelectBtn = ({ title, symbol, range, list, initialValue }) => {
+  const [value, setValue] = useState(initialValue + symbol);
   const [showOptions, setShowOptions] = useState(false);
   const [selectedOption, setSelectedOption] = useState(0);
+  const {
+    setRotation,
+    setActivePosition,
+    stopsArr,
+    activeStop,
+    randomCalls,
+    rotation,
+  } = useStore();
 
-  const upperCaseTitle = title.charAt(0).toUpperCase() + title.slice(1);
+  const upperCaseTitle = capitalizeWord(title);
 
   const getNumValue = (v) => {
     let num;
-    v.includes(symbol) ? (num = v.split(symbol)[0]) : (num = v);
+    const stringValue = v.toString();
+    stringValue.includes(symbol) ? (num = v.split(symbol)[0]) : (num = v);
     return num;
   };
 
   useEffect(() => {
     checkForSelectedOption();
+    if (title === 'rotation') {
+      setRotation(getNumValue(value));
+    } else if (title === 'position') {
+      setActivePosition(getNumValue(value) / 100);
+    }
   }, [value]);
+
+  useEffect(() => {
+    if (title === 'position' && activeStop > 0) {
+      setValue(stopsArr[activeStop].position * 100 + symbol);
+    }
+  }, [activeStop]);
+
+  useEffect(() => {
+    if (title === 'rotation') {
+      setValue(rotation + symbol);
+    }
+  }, [randomCalls]);
 
   const handleInput = (e) => {
     const v = e.target.value;
@@ -80,7 +108,7 @@ const NumSelectBtn = ({ title, symbol, range, list }) => {
           className={styles.imgWrapper}
           onClick={() => setShowOptions((old) => (old === null ? true : !old))}
         >
-        <FontAwesomeIcon icon={faChevronDown} className={styles.downImg} />
+          <FontAwesomeIcon icon={faChevronDown} className={styles.downImg} />
         </div>
       </div>
       <div

@@ -2,12 +2,15 @@ import { useState } from 'react';
 import styles from './selectBtn.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import useStore from '../../../store';
+import capitalizeWord from '../../../utils/capitalizeWord';
 
-const SelectBtn = ({ title, values }) => {
-  const [value, setValue] = useState('Linear');
+const SelectBtn = ({ title, values, initialValue }) => {
+  const [value, setValue] = useState(initialValue);
   const [showOptions, setShowOptions] = useState(false);
+  const { setType } = useStore();
 
-  const upperCaseTitle = title.charAt(0).toUpperCase() + title.slice(1);
+  const upperCaseTitle = capitalizeWord(title);
 
   return (
     <div className={styles.selectWrapper}>
@@ -38,6 +41,7 @@ const SelectBtn = ({ title, values }) => {
                 }`}
                 onClick={() => {
                   setValue(item);
+                  setType(item);
                   setShowOptions(false);
                 }}
                 key={index}

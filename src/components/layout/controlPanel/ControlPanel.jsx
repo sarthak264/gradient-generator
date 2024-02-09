@@ -1,17 +1,33 @@
+import useStore from '../../../store';
 import positionOptions from '../../../utils/positionOptions';
+import randomGradient from '../../../utils/randomGradient';
 import rotationOptions from '../../../utils/rotationOptions';
 import Button from '../../ui/button/Button';
 import ColorInput from '../../ui/colorInput/ColorInput';
 import NumSelectBtn from '../../ui/numSelectBtn/NumSelectBtn';
 import SelectBtn from '../../ui/selectBtn/SelectBtn';
+import Slider from '../../ui/slider/Slider';
 import styles from './controlPanel.module.css';
 
 const ControlPanel = () => {
+  const {
+    setRandomGradient,
+    type,
+    rotation,
+    activeStop,
+    stopsArr,
+    setRotation,
+    setActiveColor,
+  } = useStore();
+  const newArr = randomGradient();
+  const updateRandomGradient = () => {
+    setRandomGradient(newArr);
+    setRotation(90);
+    setActiveColor(newArr[0].color);
+  };
   return (
     <div className={styles.controlPanel}>
-      <div className={styles.slider}>
-        <div className={styles.sliderCursors}></div>
-      </div>
+      <Slider />
       <div className={styles.btnsWrapper} style={{ marginBottom: '40px' }}>
         <ColorInput />
         <NumSelectBtn
@@ -19,17 +35,23 @@ const ControlPanel = () => {
           symbol='%'
           range={100}
           list={positionOptions}
+          initialValue={stopsArr[activeStop].position}
         />
         <NumSelectBtn
           title='rotation'
           symbol='°'
           range={360}
           list={rotationOptions}
+          initialValue={rotation}
         />
-        <SelectBtn title='type' values={['Linear', 'Radial']} />
+        <SelectBtn
+          title='type'
+          values={['Linear', 'Radial']}
+          initialValue={type}
+        />
       </div>
       <div className={styles.btnsWrapper}>
-        <Button title='Random' />
+        <Button title='Random' onClick={updateRandomGradient} />
         <Button title='Copy CSS' theme='blue' />
       </div>
     </div>
