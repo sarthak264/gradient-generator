@@ -24,7 +24,7 @@ const Slider = () => {
   }, []);
 
   const calculatePosition = (position) => {
-    let finalPosition = position * sliderWidth - 15;
+    let finalPosition = position * (sliderWidth - 30);
     if (finalPosition < 0) {
       finalPosition = 0;
     } else if (position == 1) {

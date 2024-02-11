@@ -37,7 +37,7 @@ const NumSelectBtn = ({ title, symbol, range, list, initialValue }) => {
   }, [value]);
 
   useEffect(() => {
-    if (title === 'position' && activeStop > 0) {
+    if (title === 'position' && activeStop >= 0) {
       setValue(stopsArr[activeStop].position * 100 + symbol);
     }
   }, [activeStop]);

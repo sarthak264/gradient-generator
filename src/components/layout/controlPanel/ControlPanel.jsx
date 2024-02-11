@@ -18,6 +18,7 @@ const ControlPanel = () => {
     stopsArr,
     setRotation,
     setActiveColor,
+    setShowCopyModal
   } = useStore();
   const newArr = randomGradient();
   const updateRandomGradient = () => {
@@ -52,7 +53,7 @@ const ControlPanel = () => {
       </div>
       <div className={styles.btnsWrapper}>
         <Button title='Random' onClick={updateRandomGradient} />
-        <Button title='Copy CSS' theme='blue' />
+        <Button title='Copy CSS' theme='blue' onClick={setShowCopyModal} />
       </div>
     </div>
   );
