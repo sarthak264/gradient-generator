@@ -11,11 +11,12 @@ const NumSelectBtn = ({ title, symbol, range, list, initialValue }) => {
   const [selectedOption, setSelectedOption] = useState(0);
   const {
     setRotation,
-    setActivePosition,
+    setPosition,
     stopsArr,
     activeStop,
     randomCalls,
     rotation,
+    draggable,
   } = useStore();
 
   const upperCaseTitle = capitalizeWord(title);
@@ -32,15 +33,15 @@ const NumSelectBtn = ({ title, symbol, range, list, initialValue }) => {
     if (title === 'rotation') {
       setRotation(getNumValue(value));
     } else if (title === 'position') {
-      setActivePosition(getNumValue(value) / 100);
+      setPosition(getNumValue(value) / 100);
     }
   }, [value]);
 
   useEffect(() => {
     if (title === 'position' && activeStop >= 0) {
-      setValue(stopsArr[activeStop].position * 100 + symbol);
+      setValue(Math.round(stopsArr[activeStop].position * 100) + symbol);
     }
-  }, [activeStop]);
+  }, [activeStop, stopsArr]);
 
   useEffect(() => {
     if (title === 'rotation') {

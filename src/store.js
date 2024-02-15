@@ -12,27 +12,48 @@ const store = (set, get) => ({
   activeStop: 0,
   randomCalls: 0,
   showCopyModal: false,
+  draggable: false,
+  setDraggable: (draggable) => {
+    set({ draggable }), false, 'setDraggable';
+  },
   setShowCopyModal: () =>
-    set((old) => ({ showCopyModal: !old.showCopyModal }), false, 'setShowCopyModal'),
+    set(
+      (old) => ({ showCopyModal: !old.showCopyModal }),
+      false,
+      'setShowCopyModal'
+    ),
   setType: (type) => set({ type }, false, 'setType'),
   setRotation: (rotation) => set({ rotation }, false, 'setRotation'),
   setActiveStop: (activeStop) => set({ activeStop }, false, 'setActiveStop'),
-  setActiveColor: (color) => {
+  setColor: (color) => {
     const updatedStopsArr = [...get().stopsArr];
     updatedStopsArr[get().activeStop].color = color;
     set({ stopsArr: updatedStopsArr }, false, 'setColor');
   },
-  setActivePosition: (position) => {
+  setPosition: (position) => {
     const updatedStopsArr = [...get().stopsArr];
     updatedStopsArr[get().activeStop].position = position;
     set({ stopsArr: updatedStopsArr }, false, 'setPosition');
   },
-  setRandomGradient: (stopsArr) =>
+  setRandomGradient: (stopsArr) => {
     set(
       { stopsArr, rotation: 90, randomCalls: get().randomCalls + 1 },
       false,
       'setRandomGradient'
-    ),
+    );
+  },
+  addStop: (color, position) => {
+    const updatedStopsArr = [...get().stopsArr];
+    let index = 0;
+    for (let i = 0; i < updatedStopsArr.length; i++) {
+      const currentPos = updatedStopsArr[i].position;
+      if (position > currentPos) {
+        index = i + 1;
+      }
+    }
+    updatedStopsArr.splice(index, 0, { color: color, position: position });
+    set({ stopsArr: updatedStopsArr }, false, 'setPosition');
+  },
 });
 
 const useStore = create(devtools(store));

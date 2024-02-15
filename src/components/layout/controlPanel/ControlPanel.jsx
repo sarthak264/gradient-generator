@@ -17,14 +17,16 @@ const ControlPanel = () => {
     activeStop,
     stopsArr,
     setRotation,
-    setActiveColor,
-    setShowCopyModal
+    setColor,
+    setShowCopyModal,
+    setActiveStop
   } = useStore();
   const newArr = randomGradient();
   const updateRandomGradient = () => {
     setRandomGradient(newArr);
     setRotation(90);
-    setActiveColor(newArr[0].color);
+    setActiveStop(0);
+    setColor(newArr[0].color);
   };
   return (
     <div className={styles.controlPanel}>

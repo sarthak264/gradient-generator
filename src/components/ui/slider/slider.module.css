@@ -3,8 +3,8 @@
     height: 12px;
     border-radius: 10px;
     background: linear-gradient(90deg, #681193 0%, #4542C9 51%, #2472FC 100%);
-
     margin: 24px 0 50px 0;
+    cursor: copy;
 }
 
 .sliderCursors {
@@ -16,6 +16,7 @@
     border-radius: 50%;
     transform: translate3d(0, -50%, 0);
     box-shadow: rgba(0, 0, 0, 0.15) 0 0 0 1px, rgba(0, 0, 0, 0.05) 0 10px 10px -5px, inset #fff 0 0 0 6px;
+    cursor: grab;
 }
 
 .activeSliderCursor {
