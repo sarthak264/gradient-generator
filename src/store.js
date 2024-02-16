@@ -30,6 +30,11 @@ const store = (set, get) => ({
     updatedStopsArr[get().activeStop].color = color;
     set({ stopsArr: updatedStopsArr }, false, 'setColor');
   },
+  removeStop: (index) => {
+    const updatedStopsArr = [...get().stopsArr];
+    updatedStopsArr.splice(index, 1);
+    set({ stopsArr: updatedStopsArr }, false, 'removeStop');
+  },
   setPosition: (position) => {
     const updatedStopsArr = [...get().stopsArr];
     updatedStopsArr[get().activeStop].position = position;

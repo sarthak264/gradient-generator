@@ -4,7 +4,8 @@ import styles from './colorInput.module.css';
 import useStore from '../../../store';
 
 const ColorInput = () => {
-  const { stopsArr, activeStop, setColor, randomCalls } = useStore();
+  const { stopsArr, activeStop, setColor, randomCalls, removeStop } =
+    useStore();
   const [localColor, setLocalColor] = useState(stopsArr[activeStop].color);
   const [selectColor, setSelectColor] = useState(false);
 
@@ -17,7 +18,17 @@ const ColorInput = () => {
 
   return (
     <div className={styles.colorInputWrapper}>
-      <label htmlFor='color'>Color</label>
+      <label htmlFor='color' className={styles.colorInputLabel}>
+        Color
+        {stopsArr.length > 2 && (
+          <span
+            className={styles.removeBtn}
+            onClick={() => removeStop(activeStop)}
+          >
+            Remove
+          </span>
+        )}
+      </label>
       <input
         type='text'
         name='color'
@@ -33,7 +44,9 @@ const ColorInput = () => {
           setSelectColor((old) => (old === null ? true : !old));
         }}
       ></div>
-      {selectColor && <HexColorPicker color={localColor} onChange={setLocalColor} />}
+      {selectColor && (
+        <HexColorPicker color={localColor} onChange={setLocalColor} />
+      )}
     </div>
   );
 };

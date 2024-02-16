@@ -2,6 +2,21 @@
     position: relative;
 }
 
+.colorInputLabel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.removeBtn {
+    color: #005ce6;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .colorInput {
     padding: 0 50px 0 14px;
     height: 46px;
