@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className={styles.nav}>
         <h3>
-            Coolors
+            CSS Gradient Lab
         </h3>
     </nav>
   )
