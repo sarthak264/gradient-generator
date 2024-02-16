@@ -12,3 +12,9 @@ nav h3 {
     font-family: 'Sixtyfour', sans-serif;
     color: #0066ff;
 }
+
+@media (max-width:991px) {
+    nav {
+        justify-content: center;
+    }
+}

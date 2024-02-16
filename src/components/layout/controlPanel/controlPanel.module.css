@@ -12,3 +12,13 @@
     align-items: center;
     gap: 24px;
 }
+
+@media (max-width:576px) {
+    .controlPanel {
+        height: auto;
+    }
+
+    .btnsWrapper {
+        grid-template-columns: 1fr;
+    }
+}

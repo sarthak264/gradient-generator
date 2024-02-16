@@ -10,7 +10,7 @@ body {
   padding: 0;
   font-family: 'Inter', sans-serif;
 
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #fff;
 }
 
@@ -49,4 +49,10 @@ input[type=text] {
   bottom: -205px;
   right: -40%;
   z-index: 999;
+}
+
+@media (max-width: 576px) {
+  .react-colorful {
+    right: 0%;
+  }
 }

@@ -1,11 +1,11 @@
 .fullScreenPreview {
     display: block;
-    position: absolute;
+    position: fixed;
     inset: 0;
     width: 100%;
     height: 100vh;
     background: linear-gradient(0, #681193 0%, #4542C9 51%, #2472FC 100%);
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, -100%, 0);
     z-index: 99;
     transition: all 0.3s cubic-bezier(0.6, 0.4, 0, 1);
 }
@@ -27,6 +27,10 @@
     background-color: #fff;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.shuffleWrapper {
+    top: 66px;
 }
 
 .crossIcon {

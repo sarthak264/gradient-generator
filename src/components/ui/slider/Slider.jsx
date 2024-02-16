@@ -131,8 +131,14 @@ const Slider = () => {
             setDraggable(true);
             setActiveStop(index);
           }}
+          onTouchStart={() => {
+            setDraggable(true);
+            setActiveStop(index);
+          }}
           onMouseMove={(e) => dragCursor(e)}
+          onTouchMove={(e) => dragCursor(e.touches[0])}
           onMouseUp={() => setDraggable(false)}
+          onTouchEnd={() => setDraggable(false)}
         ></div>
       ))}
     </div>

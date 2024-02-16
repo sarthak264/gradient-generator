@@ -3,7 +3,7 @@ const generateGradientString = (type, rotation, stopsArr) => {
     type === 'Radial' ? 'radial-gradient' : 'linear-gradient';
   const gradientDirection = type === 'Radial' ? 'circle' : rotation;
   const stopsString = stopsArr
-    .map((stop) => `${stop.color} ${stop.position * 100}%`)
+    .map((stop) => `${stop.color} ${Math.round(stop.position * 100)}%`)
     .join(', ');
 
   return `${gradientType}(${gradientDirection}${

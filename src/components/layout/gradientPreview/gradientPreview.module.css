@@ -19,3 +19,10 @@
         opacity: 1;
     }
 }
+
+@media (max-width: 991px) {
+    .preview {
+        height: 300px;
+        order: -1;
+    }
+}

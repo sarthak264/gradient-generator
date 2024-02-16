@@ -8,3 +8,11 @@ main {
     align-items: center;
     gap: 40px;
 }
+
+@media (max-width:991px) {
+    main {
+        grid-template-columns: 1fr;
+        padding: 0 24px 60px;
+        max-width: 600px;
+    }
+}

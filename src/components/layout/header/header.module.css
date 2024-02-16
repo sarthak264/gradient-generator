@@ -4,6 +4,8 @@ header {
     justify-content: center;
     align-items: center;
     margin: 100px 0;
+    padding: 0 42px;
+    text-align: center;
 }
 
 header h1 {
@@ -18,4 +20,11 @@ header h2 {
     font-weight: 400;
     line-height: 1.7em;
     color: #7d7c83;
+}
+
+@media (max-width: 991px) {
+    header {
+        margin: 60px 0;
+        padding: 0 24px;
+    }
 }
