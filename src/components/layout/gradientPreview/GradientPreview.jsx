@@ -1,8 +1,7 @@
 import styles from './gradientPreview.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
 import useStore from '../../../store';
 import generateGradientString from '../../../utils/generateGradient';
+import { Maximize } from 'lucide-react';
 
 const GradientPreview = ({ setShowFullPreview }) => {
   const { type, rotation, stopsArr } = useStore();
@@ -14,8 +13,8 @@ const GradientPreview = ({ setShowFullPreview }) => {
         background: `${generateGradientString(type, rotation, stopsArr)}`,
       }}
     >
-      <FontAwesomeIcon
-        icon={faUpRightAndDownLeftFromCenter}
+      <Maximize
+        size={24}
         className={styles.fullscreen}
         onClick={() => setShowFullPreview((old) => !old)}
       />

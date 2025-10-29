@@ -21,8 +21,9 @@
 
 .downImg {
     position: absolute;
-    top: 16px;
-    right: 18px;
+    top: '50%';
+    transform: translateY(50%);
+    right: 15px;
     font-size: 13px;
     pointer-events: none;
 }

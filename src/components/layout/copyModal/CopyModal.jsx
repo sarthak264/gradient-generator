@@ -1,11 +1,9 @@
-import React from 'react';
 import useStore from '../../../store';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import styles from './copyModal.module.css';
 import generateCode from '../../../utils/generateCode';
 import Button from '../../ui/button/Button';
-import toast from 'react-hot-toast';
+import { toast } from 'sonner';
+import { X } from 'lucide-react';
 
 const CopyModal = () => {
   const { showCopyModal, setShowCopyModal, type, rotation, stopsArr } =
@@ -56,7 +54,7 @@ const CopyModal = () => {
           <div className={styles.modalHeader}>
             <p>Gradient CSS</p>
             <div className={styles.closeBtn} onClick={setShowCopyModal}>
-              <FontAwesomeIcon icon={faXmark} className={styles.crossIcon} />
+              <X />
             </div>
           </div>
           <div className={styles.modalBody}>

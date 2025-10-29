@@ -99,7 +99,7 @@
     }
 
     p {
-        font-family: 'Noto Sans Mono', monospace !important;
+        font-family: monospace;
         font-size: 12px;
         font-weight: 400;
     }

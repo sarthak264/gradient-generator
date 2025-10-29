@@ -8,7 +8,7 @@ const GradientMaker = () => {
   const [showFullPreview, setShowFullPreview] = useState(false);
 
   return (
-    <main>
+    <main style={{paddingBottom: 50}}>
       <ControlPanel />
       <GradientPreview setShowFullPreview={setShowFullPreview} />
       <FullScreenPreview

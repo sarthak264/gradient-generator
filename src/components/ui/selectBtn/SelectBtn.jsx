@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import styles from './selectBtn.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import useStore from '../../../store';
 import capitalizeWord from '../../../utils/capitalizeWord';
+import { ChevronDown } from 'lucide-react';
 
 const SelectBtn = ({ title, values, initialValue }) => {
   const [value, setValue] = useState(initialValue);
@@ -27,7 +26,7 @@ const SelectBtn = ({ title, values, initialValue }) => {
           value={value}
           onClick={() => setShowOptions((old) => (old === null ? true : !old))}
         />
-        <FontAwesomeIcon icon={faChevronDown} className={styles.downImg} />
+        <ChevronDown className={styles.downImg} />
         <div
           className={`${styles.options} ${
             showOptions ? styles.optionsVisible : ''

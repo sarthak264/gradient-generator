@@ -1,9 +1,8 @@
 import styles from './numSelectBtn.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import React, { useEffect, useState } from 'react';
 import useStore from '../../../store';
 import capitalizeWord from '../../../utils/capitalizeWord';
+import { Check, ChevronDown } from 'lucide-react';
 
 const NumSelectBtn = ({ title, symbol, range, list, initialValue }) => {
   const [value, setValue] = useState(initialValue + symbol);
@@ -109,7 +108,7 @@ const NumSelectBtn = ({ title, symbol, range, list, initialValue }) => {
           className={styles.imgWrapper}
           onClick={() => setShowOptions((old) => (old === null ? true : !old))}
         >
-          <FontAwesomeIcon icon={faChevronDown} className={styles.downImg} />
+          <ChevronDown />
         </div>
       </div>
       <div
@@ -127,7 +126,7 @@ const NumSelectBtn = ({ title, symbol, range, list, initialValue }) => {
               onClick={(e) => optionClicked(e, index)}
             >
               <p>{item}</p>
-              <FontAwesomeIcon icon={faCheck} className={styles.checkIcon} />
+              <Check className={styles.checkIcon} />
             </div>
           );
         })}

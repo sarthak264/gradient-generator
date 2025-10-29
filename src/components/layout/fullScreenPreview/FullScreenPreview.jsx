@@ -1,9 +1,8 @@
 import styles from './fullScreenPreview.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faShuffle } from '@fortawesome/free-solid-svg-icons';
 import useStore from '../../../store';
 import generateGradientString from '../../../utils/generateGradient';
 import randomGradient from '../../../utils/randomGradient';
+import { Shuffle, X } from 'lucide-react';
 
 const FullScreenPreview = ({ showPreview, setShowPreview }) => {
   const {
@@ -38,13 +37,13 @@ const FullScreenPreview = ({ showPreview, setShowPreview }) => {
         className={styles.iconWrapper}
         onClick={() => setShowPreview((old) => !old)}
       >
-        <FontAwesomeIcon icon={faXmark} className={styles.crossIcon} />
+        <X />
       </div>
       <div
         className={`${styles.iconWrapper} ${styles.shuffleWrapper}`}
         onClick={updateRandomGradient}
       >
-        <FontAwesomeIcon icon={faShuffle} className={styles.crossIcon} />
+        <Shuffle />
       </div>
     </div>
   );
