@@ -53,11 +53,12 @@ const CopyModal = () => {
             </div>
           </div>
           <div className='modalFooter'>
-            <Button
-              title='Download'
-              onClick={() => downloadCSS(gradientCode, 'gradient')}
-            />
-            <Button title='Copy' theme='blue' onClick={copyToClipboard} />
+            <Button onClick={() => downloadCSS(gradientCode, 'gradient')}>
+              Download
+            </Button>
+            <Button theme='blue' onClick={copyToClipboard}>
+              Copy
+            </Button>
           </div>
         </div>
       </div>

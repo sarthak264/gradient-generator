@@ -54,8 +54,14 @@ const ControlPanel = () => {
         />
       </div>
       <div className='btnsWrapper'>
-        <Button title='Random' onClick={updateRandomGradient} />
-        <Button title='Copy CSS' theme='blue' onClick={setShowCopyModal} />
+        <Button onClick={updateRandomGradient}>
+          Random
+        </Button>
+        <Button theme='blue' onClick={setShowCopyModal}>
+          Copy CSS
+        </Button>
+        {/* <Button title='Random' onClick={updateRandomGradient} />
+        <Button title='Copy CSS' theme='blue' onClick={setShowCopyModal} /> */}
       </div>
     </div>
   );
