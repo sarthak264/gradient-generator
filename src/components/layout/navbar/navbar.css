@@ -1,4 +1,4 @@
-nav {
+.nav {
     height: 60px;
     display: flex;
     justify-content: flex-start;
@@ -8,13 +8,13 @@ nav {
     box-shadow: rgba(0, 0, 0, 0.075) 0 1px;
 }
 
-nav h3 {
+.nav h3 {
     font-family: 'Sixtyfour', sans-serif;
     color: #0066ff;
 }
 
 @media (max-width:991px) {
-    nav {
+    .nav {
         justify-content: center;
     }
 }

@@ -7,7 +7,7 @@ import ColorInput from '../../ui/colorInput/ColorInput';
 import NumSelectBtn from '../../ui/numSelectBtn/NumSelectBtn';
 import SelectBtn from '../../ui/selectBtn/SelectBtn';
 import Slider from '../../ui/slider/Slider';
-import styles from './controlPanel.module.css';
+import './controlPanel.css';
 
 const ControlPanel = () => {
   const {
@@ -19,7 +19,7 @@ const ControlPanel = () => {
     setRotation,
     setColor,
     setShowCopyModal,
-    setActiveStop
+    setActiveStop,
   } = useStore();
   const newArr = randomGradient();
   const updateRandomGradient = () => {
@@ -29,9 +29,9 @@ const ControlPanel = () => {
     setColor(newArr[0].color);
   };
   return (
-    <div className={styles.controlPanel}>
+    <div className='controlPanel'>
       <Slider />
-      <div className={styles.btnsWrapper} style={{ marginBottom: '40px' }}>
+      <div className='btnsWrapper' style={{ marginBottom: '40px' }}>
         <ColorInput />
         <NumSelectBtn
           title='position'
@@ -53,7 +53,7 @@ const ControlPanel = () => {
           initialValue={type}
         />
       </div>
-      <div className={styles.btnsWrapper}>
+      <div className='btnsWrapper'>
         <Button title='Random' onClick={updateRandomGradient} />
         <Button title='Copy CSS' theme='blue' onClick={setShowCopyModal} />
       </div>

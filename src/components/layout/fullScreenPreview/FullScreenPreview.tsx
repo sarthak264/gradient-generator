@@ -1,10 +1,17 @@
-import styles from './fullScreenPreview.module.css';
+import './fullScreenPreview.css';
 import useStore from '../../../store';
 import generateGradientString from '../../../utils/generateGradient';
 import randomGradient from '../../../utils/randomGradient';
 import { Shuffle, X } from 'lucide-react';
+import { Dispatch, SetStateAction } from 'react';
 
-const FullScreenPreview = ({ showPreview, setShowPreview }) => {
+const FullScreenPreview = ({
+  showPreview,
+  setShowPreview,
+}: {
+  showPreview: boolean;
+  setShowPreview: Dispatch<SetStateAction<boolean>>;
+}) => {
   const {
     setRandomGradient,
     setRotation,
@@ -26,21 +33,19 @@ const FullScreenPreview = ({ showPreview, setShowPreview }) => {
 
   return (
     <div
-      className={`${styles.fullScreenPreview} ${
-        showPreview ? styles.previewVisible : ''
-      }`}
+      className={`fullScreenPreview ${showPreview ? 'previewVisible' : ''}`}
       style={{
         background: `${generateGradientString(type, rotation, stopsArr)}`,
       }}
     >
       <div
-        className={styles.iconWrapper}
+        className='iconWrapper'
         onClick={() => setShowPreview((old) => !old)}
       >
         <X />
       </div>
       <div
-        className={`${styles.iconWrapper} ${styles.shuffleWrapper}`}
+        className='iconWrapper shuffleWrapper'
         onClick={updateRandomGradient}
       >
         <Shuffle />

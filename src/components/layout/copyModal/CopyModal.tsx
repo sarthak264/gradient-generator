@@ -1,5 +1,5 @@
 import useStore from '../../../store';
-import styles from './copyModal.module.css';
+import './copyModal.css';
 import generateCode from '../../../utils/generateCode';
 import Button from '../../ui/button/Button';
 import { toast } from 'sonner';
@@ -22,7 +22,7 @@ const CopyModal = () => {
       });
   };
 
-  function downloadCSS(cssContent, fileName) {
+  function downloadCSS(cssContent: string, fileName: string) {
     console.log('download css');
     const blob = new Blob([cssContent], { type: 'text/css' });
 
@@ -36,35 +36,23 @@ const CopyModal = () => {
   }
 
   return (
-    <div
-      className={`${styles.modalWrapper} ${
-        showCopyModal ? styles.visibleWrapper : ''
-      }`}
-    >
-      <div
-        className={`${styles.modalContainer} ${
-          showCopyModal ? styles.isVisible : ''
-        }`}
-      >
-        <div
-          className={`${styles.modal} ${
-            showCopyModal ? styles.modalVisible : ''
-          }`}
-        >
-          <div className={styles.modalHeader}>
+    <div className={`modalWrapper ${showCopyModal ? 'visibleWrapper' : ''}`}>
+      <div className={`modalContainer ${showCopyModal ? 'isVisible' : ''}`}>
+        <div className={`modal ${showCopyModal ? 'modalVisible' : ''}`}>
+          <div className='modalHeader'>
             <p>Gradient CSS</p>
-            <div className={styles.closeBtn} onClick={setShowCopyModal}>
+            <div className='closeBtn' onClick={setShowCopyModal}>
               <X />
             </div>
           </div>
-          <div className={styles.modalBody}>
-            <div className={styles.codeWrapper}>
+          <div className='modalBody'>
+            <div className='codeWrapper'>
               {gradientCode.split('\n').map((line, index) => (
                 <p key={index}>{line}</p>
               ))}
             </div>
           </div>
-          <div className={styles.modalFooter}>
+          <div className='modalFooter'>
             <Button
               title='Download'
               onClick={() => downloadCSS(gradientCode, 'gradient')}

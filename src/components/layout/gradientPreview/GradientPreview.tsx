@@ -1,21 +1,26 @@
-import styles from './gradientPreview.module.css';
+import './gradientPreview.css';
 import useStore from '../../../store';
 import generateGradientString from '../../../utils/generateGradient';
 import { Maximize } from 'lucide-react';
+import { Dispatch, SetStateAction } from 'react';
 
-const GradientPreview = ({ setShowFullPreview }) => {
+const GradientPreview = ({
+  setShowFullPreview,
+}: {
+  setShowFullPreview: Dispatch<SetStateAction<boolean>>;
+}) => {
   const { type, rotation, stopsArr } = useStore();
 
   return (
     <div
-      className={styles.preview}
+      className='preview'
       style={{
         background: `${generateGradientString(type, rotation, stopsArr)}`,
       }}
     >
       <Maximize
         size={24}
-        className={styles.fullscreen}
+        className='fullscreen'
         onClick={() => setShowFullPreview((old) => !old)}
       />
     </div>

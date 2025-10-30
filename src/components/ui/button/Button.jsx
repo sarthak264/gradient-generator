@@ -1,6 +1,6 @@
 import styles from './button.module.css';
 
-const Button = ({ title, theme, onClick }) => {
+const Button = ({ title, theme = 'blue', onClick }) => {
   return (
     <button
       className={`${theme == 'blue' ? styles.blueBtn : ''}`}

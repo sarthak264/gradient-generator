@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './gradientMaker.module.css';
+import './gradientMaker.css';
 import ControlPanel from '../controlPanel/ControlPanel';
 import GradientPreview from '../gradientPreview/GradientPreview';
 import FullScreenPreview from '../fullScreenPreview/FullScreenPreview';
